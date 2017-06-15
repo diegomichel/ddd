@@ -2,5 +2,14 @@
 <h1>{{ .Title }}</h1>
     <h2>{{ .Date.Format "Mon, Jan2, 2006" }}</h2>
     {{ .Content }}
+    <div>
+      {{if .Prev }}
+        <a class='previous' href='{{.Prev.Permalink}}'> {{.Prev.Title}}</a>
+      |
+      {{end}}
+      {{if .Next }}
+        <a class='previous' href='{{.Next.Permalink}}'> {{.Next.Title}}</a>
+      {{end}}
+    </div>
     <p><a href="{{ .Site.BaseURL }}">Home</a></p>
 {{ partial "footer.html" . }}
